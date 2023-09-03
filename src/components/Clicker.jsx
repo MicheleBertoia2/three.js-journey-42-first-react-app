@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 
 export default function Clicker()
 {
@@ -7,7 +7,17 @@ export default function Clicker()
   // const count = countState[0]
   // const setCount = countState[1]
 
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(parseInt(localStorage.getItem('count') ?? 0))
+
+  useEffect(() =>
+  {
+   
+  }, [])
+
+  useEffect(() =>
+  {
+    localStorage.setItem('count', count);
+  }, [count])
 
   const buttonClick = () =>
   {
