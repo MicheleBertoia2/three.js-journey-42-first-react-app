@@ -11,7 +11,12 @@ export default function Clicker()
 
   useEffect(() =>
   {
-   
+    //console.log('first render');
+    return ()=>
+   {
+    //console.log('component disposed');
+    localStorage.removeItem('count')
+   } 
   }, [])
 
   useEffect(() =>

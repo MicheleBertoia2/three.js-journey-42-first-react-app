@@ -10,10 +10,7 @@ export default function App()
     setHasClicker(!hasClicker)
   }
 
-  useState(() =>
-  {
-
-  }, [])
+  
 
   return <>
     <h1>My App</h1>
