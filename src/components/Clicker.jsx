@@ -1,13 +1,13 @@
 import {useEffect, useState} from 'react'
 
-export default function Clicker()
+export default function Clicker({keyName, color = 'darkOrchid', increment})
 {
   //not destructured
   // const countState = useState(0)
   // const count = countState[0]
   // const setCount = countState[1]
 
-  const [count, setCount] = useState(parseInt(localStorage.getItem('count') ?? 0))
+  const [count, setCount] = useState(parseInt(localStorage.getItem(keyName) ?? 0))
 
   useEffect(() =>
   {
@@ -15,22 +15,25 @@ export default function Clicker()
     return ()=>
    {
     //console.log('component disposed');
-    localStorage.removeItem('count')
+    localStorage.removeItem(keyName)
    } 
   }, [])
 
   useEffect(() =>
   {
-    localStorage.setItem('count', count);
+    localStorage.setItem(keyName, count);
   }, [count])
 
   const buttonClick = () =>
   {
     setCount(count + 1)
+    increment()
   }  
 
   return <div>
-    <div>Clicks count: {count}</div>
+    <div
+      style={ {color} }
+    >Clicks count: {count}</div>
     <button onClick={ buttonClick }>Click me</button>
   </div> 
 }
