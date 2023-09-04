@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import Clicker from "./components/Clicker";
+import People from "./components/People";
 
 
 export default function App({children, clickersCount})
@@ -45,5 +46,7 @@ export default function App({children, clickersCount})
                 />
             ) }
         </> }
+    
+    <People />
   </> 
 }
